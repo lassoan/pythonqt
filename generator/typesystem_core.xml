@@ -1454,7 +1454,11 @@ public:
   <object-type name="QEventTransition"/>
   <object-type name="QFinalState"/>
 
-  <object-type name="QXmlStreamEntityResolver"/>
+  <object-type name="QXmlStreamEntityResolver" before-version="6.12"/>
+  <object-type name="QXmlStreamEntityResolver" since-version="6.12">
+    <!-- resolveEntity() is declared as final since Qt 6.12, so it must not be overridden in the shell class -->
+    <modify-function signature="resolveEntity(QString,QString)" remove="all"/>
+  </object-type>
   <object-type name="QAbstractEventDispatcher" create-promoter="no" create-shell="no" before-version="6"/>
   <object-type name="QAbstractEventDispatcher" since-version="6"/>
   <object-type name="QAbstractEventDispatcher::TimerInfo"/>
